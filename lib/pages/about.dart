@@ -38,11 +38,12 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    // final media = MediaQuery.of(context).size;
     return AnimatedBackground(
       behaviour: RandomParticleBehaviour(
           options: ParticleOptions(
-              baseColor: Color.fromRGBO(85, 177, 242, 1),
+              baseColor:
+                  // Color.fromRGBO(    155, 155, 155, 1),
+                  Color.fromRGBO(85, 177, 242, 1),
               spawnMinSpeed: 20,
               spawnMaxSpeed: 70,
               spawnMaxRadius: 6)),

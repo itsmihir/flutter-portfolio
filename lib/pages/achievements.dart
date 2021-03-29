@@ -10,7 +10,7 @@ class Achievements extends StatelessWidget {
         child: Wrap(
           alignment: WrapAlignment.spaceEvenly,
           children: [
-            AchievementGrid(Icons.leaderboard, "HackVerse 2.0", "1st Runner up",
+            AchievementGrid(Icons.star, "HackVerse 2.0", "1st Runner up",
                 "Among 150+ Teams"),
             AchievementGrid(Icons.leaderboard, "Google Kick Start Round-G 2020",
                 "Rank 372", "Among 10k+ Participants"),
@@ -20,8 +20,8 @@ class Achievements extends StatelessWidget {
                 "Among 2k+ Participants"),
             AchievementGrid(Icons.leaderboard, "BitCode-IIT Palakkad",
                 "Rank 43", "Among 3k+ Participants"),
-            AchievementGrid(Icons.leaderboard, "ACM Month of Code Hackathhon",
-                "Runner up", ""),
+            AchievementGrid(
+                Icons.star, "ACM Month of Code Hackathhon", "Runner up", ""),
             AchievementGrid(Icons.leaderboard,
                 "Google Hash Code Online Round 2019", "AIR 301", ""),
             AchievementGrid(Icons.leaderboard, "ACM ICPC Online Round 2019",
