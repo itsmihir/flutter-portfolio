@@ -14,7 +14,7 @@ class Experience extends StatelessWidget {
   final position = [
     "Freelancer",
     "SCOSH-NIT Surat, Tech Lead",
-    "ACM-NIT Surat, Core Member And Problem Settler",
+    "ACM-NIT Surat, Core Member And Problem Setter",
     "ACM-NIT Surat, Backend Executive",
     "Student At NIT Surat, Major in Applied Mathematics",
     "Student at Kendriya Vidyalaya"
