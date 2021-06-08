@@ -129,8 +129,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                     fit: BoxFit.fill,
                   ),
                   onPressed: () {
-                    html.window
-                        .open("https://mailto:inmihir11@gmail.com", "gmail");
+                    html.window.open("mailto:inmihir11@gmail.com", "gmail");
                   }),
             ),
             Padding(

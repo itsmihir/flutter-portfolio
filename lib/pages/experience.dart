@@ -4,8 +4,8 @@ import 'package:timelines/timelines.dart';
 class Experience extends StatelessWidget {
   final year = [
     "May 2020 - Current",
-    "May 2020 - Current",
-    "May 2020 - Current",
+    "May 2020 - May 2021",
+    "May 2020 - May 2021",
     "May 2019 - May 2020",
     "May 2018 - Current",
     "May 2006 - May 2018"
@@ -22,39 +22,42 @@ class Experience extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
-        child: FixedTimeline.tileBuilder(
-          builder: TimelineTileBuilder.connectedFromStyle(
-            contentsAlign: ContentsAlign.alternating,
-            oppositeContentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Text(
-                year[index],
-                style: TextStyle(fontWeight: FontWeight.bold),
+    return RawScrollbar(
+      thumbColor: Colors.grey,
+      child: SingleChildScrollView(
+        child: Container(
+          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 50),
+          child: FixedTimeline.tileBuilder(
+            builder: TimelineTileBuilder.connectedFromStyle(
+              contentsAlign: ContentsAlign.alternating,
+              oppositeContentsBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Text(
+                  year[index],
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
               ),
-            ),
-            contentsBuilder: (context, index) => Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Text(
-                    position[index],
-                    style: TextStyle(color: Colors.black),
+              contentsBuilder: (context, index) => Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: Card(
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Text(
+                      position[index],
+                      style: TextStyle(color: Colors.black),
+                    ),
                   ),
                 ),
               ),
+              connectorStyleBuilder: (context, index) {
+                return ConnectorStyle.solidLine;
+              },
+              indicatorStyleBuilder: (context, index) =>
+                  (index == 3 || index == 5)
+                      ? IndicatorStyle.dot
+                      : IndicatorStyle.outlined,
+              itemCount: year.length,
             ),
-            connectorStyleBuilder: (context, index) {
-              return ConnectorStyle.solidLine;
-            },
-            indicatorStyleBuilder: (context, index) =>
-                (index == 3 || index == 5)
-                    ? IndicatorStyle.dot
-                    : IndicatorStyle.outlined,
-            itemCount: year.length,
           ),
         ),
       ),

@@ -29,36 +29,40 @@ class Skills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context).size;
-    return ListView.builder(
-      itemBuilder: (_, ind) {
-        return Container(
-          margin: EdgeInsets.only(
-              left: media.width * 0.1,
-              right: media.width * 0.1,
-              top: media.height * 0.04,
-              bottom: media.height * 0.01),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(skills[ind]),
-              ),
-              LinearPercentIndicator(
-                backgroundColor: Colors.transparent,
-                width: media.width * 0.7,
-                animation: true,
-                lineHeight: 10.0,
-                animationDuration: 1000,
-                percent: level[ind] / 100,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                progressColor: Colors.green,
-              ),
-            ],
-          ),
-        );
-      },
-      itemCount: skills.length,
+    return RawScrollbar(
+      thumbColor: Colors.grey,
+      child: ListView.builder(
+        itemBuilder: (_, ind) {
+          if (ind == skills.length) return SizedBox(height: 50);
+          return Container(
+            margin: EdgeInsets.only(
+                left: media.width * 0.1,
+                right: media.width * 0.1,
+                top: media.height * 0.04,
+                bottom: media.height * 0.01),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(skills[ind]),
+                ),
+                LinearPercentIndicator(
+                  backgroundColor: Colors.transparent,
+                  width: media.width * 0.7,
+                  animation: true,
+                  lineHeight: 10.0,
+                  animationDuration: 1000,
+                  percent: level[ind] / 100,
+                  linearStrokeCap: LinearStrokeCap.roundAll,
+                  progressColor: Colors.green,
+                ),
+              ],
+            ),
+          );
+        },
+        itemCount: skills.length + 1,
+      ),
     );
   }
 }
