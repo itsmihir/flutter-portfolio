@@ -48,7 +48,7 @@ class Achievements extends StatelessWidget {
                   Icons.leaderboard,
                   "ACM-Summer Challenge Competitive Contest 2019",
                   "2nd Runner Up",
-                  ""),
+                  "")
             ],
           ),
         ),

@@ -144,14 +144,13 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                   }),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-              child: IconButton(
-                  iconSize: 40,
-                  icon: Image.asset("images/github.webp"),
-                  onPressed: () {
-                    html.window.open("https://github.com/itsmihir", "githun");
-                  }),
-            ),
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                child: IconButton(
+                    iconSize: 40,
+                    icon: Image.asset("images/github.webp"),
+                    onPressed: () {
+                      html.window.open("https://github.com/itsmihir", "githun");
+                    })),
             Padding(
               padding: const EdgeInsets.only(left: 8.0, right: 8.0),
               child: IconButton(
