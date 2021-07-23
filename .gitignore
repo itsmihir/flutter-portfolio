@@ -31,6 +31,8 @@
 .pub/
 /build/
 
+web/firebaseInit.js
+
 # Web related
 lib/generated_plugin_registrant.dart
 

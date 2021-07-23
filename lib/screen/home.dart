@@ -75,7 +75,8 @@ class _HomePageState extends State<HomePage> {
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
                     onPressed: () {
-                      html.window.open("/assets/Resume.pdf", "resume");
+                      html.window
+                          .open("/assets/Mihir Khambhati Resume.pdf", "resume");
                     },
                     child: Text("Resume")),
               ),
