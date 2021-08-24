@@ -20,8 +20,6 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
     "Blockchain Enthusiast",
   ];
   int _currentRole = 0, _currentColor = 0;
-  double x = 0.0;
-  double y = 0.0;
   double _minSpeed = 20, _maxSpeed = 70;
   var timer;
   List<Color> color = [
@@ -56,144 +54,133 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onHover: (details) {
-        setState(() {
-          _maxSpeed = (_maxSpeed == 70 ? 100 : 70);
-          _minSpeed = (_minSpeed == 20 ? 50 : 20);
-        });
-      },
-      child: AnimatedBackground(
-        behaviour: RandomParticleBehaviour(
-            options: ParticleOptions(
-                baseColor:
-                    // Color.fromRGBO(    155, 155, 155, 1),
-                    color[_currentColor],
-                spawnMinSpeed: _minSpeed,
-                spawnMaxSpeed: _maxSpeed,
-                spawnMaxRadius: 6)),
-        vsync: this,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          Spacer(
-            flex: 3,
+    return AnimatedBackground(
+      behaviour: RandomParticleBehaviour(
+          options: ParticleOptions(
+              baseColor: color[_currentColor],
+              spawnMinSpeed: _minSpeed,
+              spawnMaxSpeed: _maxSpeed,
+              spawnMaxRadius: 6)),
+      vsync: this,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        Spacer(
+          flex: 3,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Center(
+            child: Text("Hello, I'm Mihir Khambhati",
+                textAlign: TextAlign.center,
+                style: GoogleFonts.getFont(
+                  "Roboto Mono",
+                  fontWeight: FontWeight.bold,
+                  fontSize: 40,
+                )),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text("Hello, I'm Mihir Khambhati",
+        ),
+        Spacer(
+          flex: 1,
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            children: [
+              Center(
+                child: Text(
+                  "I'm a ",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.getFont(
                     "Roboto Mono",
                     fontWeight: FontWeight.bold,
                     fontSize: 40,
-                  )),
-            ),
-          ),
-          Spacer(
-            flex: 1,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Wrap(
-              alignment: WrapAlignment.center,
-              children: [
-                Center(
-                  child: Text(
-                    "I'm a ",
+                  ),
+                ),
+              ),
+              AnimatedTextKit(
+                repeatForever: true,
+                pause: Duration(seconds: 3),
+                animatedTexts: [
+                  TypewriterAnimatedText(
+                    roles[_currentRole],
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.getFont(
+                    textStyle: GoogleFonts.getFont(
                       "Roboto Mono",
                       fontWeight: FontWeight.bold,
                       fontSize: 40,
                     ),
                   ),
-                ),
-                AnimatedTextKit(
-                  repeatForever: true,
-                  pause: Duration(seconds: 3),
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      roles[_currentRole],
-                      textAlign: TextAlign.center,
-                      textStyle: GoogleFonts.getFont(
-                        "Roboto Mono",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 40,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Spacer(
-            flex: 2,
-          ),
-          Center(
-            child: Text(
-              "Contact Me",
-              style: GoogleFonts.getFont(
-                "Roboto Mono",
-                fontWeight: FontWeight.bold,
-                fontSize: 30,
+                ],
               ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset(
-                      "images/gmail.webp",
-                      fit: BoxFit.fill,
-                    ),
-                    onPressed: () {
-                      html.window.open("mailto:inmihir11@gmail.com", "gmail");
-                    }),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset("images/linkedin.webp"),
-                    onPressed: () {
-                      html.window.open(
-                          "https://www.linkedin.com/in/mihir-khambhati-577696179/",
-                          "linkedin");
-                    }),
-              ),
-              Padding(
-                  padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                  child: IconButton(
-                      iconSize: 40,
-                      icon: Image.asset("images/github.webp"),
-                      onPressed: () {
-                        html.window
-                            .open("https://github.com/itsmihir", "githun");
-                      })),
-              Padding(
-                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                child: IconButton(
-                    iconSize: 40,
-                    icon: Image.asset("images/cf.webp"),
-                    onPressed: () {
-                      html.window.open(
-                          "https://codeforces.com/profile/itsmihir", "cf");
-                    }),
-              )
             ],
           ),
-          Spacer(
-            flex: 2,
+        ),
+        Spacer(
+          flex: 2,
+        ),
+        Center(
+          child: Text(
+            "Contact Me",
+            style: GoogleFonts.getFont(
+              "Roboto Mono",
+              fontWeight: FontWeight.bold,
+              fontSize: 30,
+            ),
           ),
-        ]),
-      ),
+        ),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: IconButton(
+                  iconSize: 40,
+                  icon: Image.asset(
+                    "images/gmail.webp",
+                    fit: BoxFit.fill,
+                  ),
+                  onPressed: () {
+                    html.window.open("mailto:inmihir11@gmail.com", "gmail");
+                  }),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: IconButton(
+                  iconSize: 40,
+                  icon: Image.asset("images/linkedin.webp"),
+                  onPressed: () {
+                    html.window.open(
+                        "https://www.linkedin.com/in/mihir-khambhati-577696179/",
+                        "linkedin");
+                  }),
+            ),
+            Padding(
+                padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                child: IconButton(
+                    iconSize: 40,
+                    icon: Image.asset("images/github.webp"),
+                    onPressed: () {
+                      html.window.open("https://github.com/itsmihir", "githun");
+                    })),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+              child: IconButton(
+                  iconSize: 40,
+                  icon: Image.asset("images/cf.webp"),
+                  onPressed: () {
+                    html.window
+                        .open("https://codeforces.com/profile/itsmihir", "cf");
+                  }),
+            )
+          ],
+        ),
+        Spacer(
+          flex: 2,
+        ),
+      ]),
     );
   }
 }

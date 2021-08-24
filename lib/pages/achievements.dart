@@ -12,6 +12,11 @@ class Achievements extends StatelessWidget {
           child: Wrap(
             alignment: WrapAlignment.spaceEvenly,
             children: [
+              AchievementGrid(
+                  Icons.leaderboard,
+                  "Google Kick Start Round-D 2021",
+                  "Rank 436",
+                  "Among 10k+ Participants"),
               AchievementGrid(Icons.star, "HackVerse 2.0", "1st Runner up",
                   "Among 150+ Teams"),
               AchievementGrid(

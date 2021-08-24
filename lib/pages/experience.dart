@@ -53,9 +53,9 @@ class Experience extends StatelessWidget {
                   return ConnectorStyle.solidLine;
                 },
                 indicatorStyleBuilder: (context, index) =>
-                    (index == 3 || index == 5)
-                        ? IndicatorStyle.dot
-                        : IndicatorStyle.outlined,
+                    (index == 0 || index == 4)
+                        ? IndicatorStyle.outlined
+                        : IndicatorStyle.dot,
                 itemCount: year.length,
               ),
             ),
