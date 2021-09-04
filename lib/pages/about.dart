@@ -19,29 +19,14 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
     "Competitive Programmer",
     "Blockchain Enthusiast",
   ];
-  int _currentRole = 0, _currentColor = 0;
-  double _minSpeed = 20, _maxSpeed = 70;
+  int _currentRole = 0;
   var timer;
-  List<Color> color = [
-    Color.fromRGBO(66, 170, 245, 1),
-    Color.fromRGBO(105, 189, 250, 1),
-    Color.fromRGBO(147, 207, 250, 1),
-    Color.fromRGBO(153, 205, 242, 1),
-    Color.fromRGBO(198, 227, 247, 1),
-    Color.fromRGBO(176, 217, 247, 1),
-    Color.fromRGBO(147, 207, 250, 1),
-    Color.fromRGBO(147, 207, 250, 1),
-    Color.fromRGBO(105, 189, 250, 1),
-    Color.fromRGBO(80, 174, 242, 1),
-  ];
   @override
   void initState() {
     super.initState();
     timer = Timer.periodic(Duration(seconds: 3), (timer) {
       setState(() {
         _currentRole = (_currentRole + 1) % roles.length;
-        _currentColor++;
-        _currentColor %= color.length;
       });
     });
   }
@@ -57,13 +42,13 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
     return AnimatedBackground(
       behaviour: RandomParticleBehaviour(
           options: ParticleOptions(
-              baseColor: color[_currentColor],
-              spawnMinSpeed: _minSpeed,
-              spawnMaxSpeed: _maxSpeed,
+              baseColor: Color.fromRGBO(66, 170, 245, 1),
+              spawnMinSpeed: 20,
+              spawnMaxSpeed: 70,
               spawnMaxRadius: 6)),
       vsync: this,
       child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-        Spacer(
+        const Spacer(
           flex: 3,
         ),
         Padding(
@@ -78,12 +63,13 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
                 )),
           ),
         ),
-        Spacer(
+        const Spacer(
           flex: 1,
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
+        SizedBox(
+          height: 120,
           child: Wrap(
+            
             alignment: WrapAlignment.center,
             children: [
               Center(
@@ -115,8 +101,8 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
             ],
           ),
         ),
-        Spacer(
-          flex: 2,
+        const Spacer(
+          flex: 3,
         ),
         Center(
           child: Text(
@@ -128,7 +114,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 10,
         ),
         Row(
@@ -177,7 +163,7 @@ class _AboutState extends State<About> with TickerProviderStateMixin {
             )
           ],
         ),
-        Spacer(
+        const Spacer(
           flex: 2,
         ),
       ]),

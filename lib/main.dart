@@ -19,13 +19,6 @@ class MyApp extends StatelessWidget {
                 color: Color.fromRGBO(155, 155, 155, 1)),
           ),
           scaffoldBackgroundColor: Color.fromRGBO(24, 24, 24, 1)),
-      // theme: ThemeData(
-      //     primarySwatch: Colors.blue,
-      //     textTheme: TextTheme(
-      //         bodyText2: TextStyle(
-      //       color: Color.fromRGBO(24, 24, 24, 1),
-      //     )),
-      //     scaffoldBackgroundColor: Colors.white),
       home: HomePage(),
     );
   }

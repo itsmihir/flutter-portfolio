@@ -34,7 +34,8 @@ class Experience extends StatelessWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: Text(
                     year[index],
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: TextStyle(fontWeight: FontWeight.bold,
+                            fontSize: 16),
                   ),
                 ),
                 contentsBuilder: (context, index) => Padding(
@@ -44,7 +45,7 @@ class Experience extends StatelessWidget {
                       padding: const EdgeInsets.all(20.0),
                       child: Text(
                         position[index],
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.black,fontSize: 16),
                       ),
                     ),
                   ),
